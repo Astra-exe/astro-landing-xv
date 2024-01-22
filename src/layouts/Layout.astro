@@ -4,10 +4,11 @@ interface Props {
 }
 
 const { title } = Astro.props
+const { currentLocale } = Astro
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang={currentLocale}>
   <head>
     <meta charset='UTF-8' />
     <meta name='description' content='Astro description' />
@@ -17,35 +18,78 @@ const { title } = Astro.props
     <title>{title}</title>
   </head>
   <body>
-    <slot />
+    <div>
+      <slot />
+    </div>
   </body>
 </html>
 <style is:global>
   :root {
-    --accent: 136, 58, 234;
-    --accent-light: 224, 204, 250;
-    --accent-dark: 49, 10, 101;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-light)) 30%,
-      white 60%
-    );
+    color-scheme: dark;
   }
+
+  @font-face {
+		font-family: 'Parisienne';
+  	font-style: normal;
+  	font-weight: 400;
+		font-display: swap;
+  	src:
+    local("Parisienne"),
+			url("/fonts/Parisienne.woff2") format("woff2"),
+			url("/fonts/Parisienne.ttf") format("truetype");
+  }
+
+  @font-face {
+		font-family: 'Poppins';
+  	font-style: normal;
+  	font-weight: 400;
+		font-display: swap;
+  	src:
+    local("Poppins"),
+			url("/fonts/Poppins-Regular.woff2") format("woff2"),
+			url("/fonts/Poppins-Regular.ttf") format("truetype");
+  }
+  @font-face {
+		font-family: 'Poppins';
+  	font-style: normal;
+  	font-weight: 300;
+		font-display: swap;
+  	src:
+    local("Poppins"),
+			url("/fonts/Poppins-Light.woff2") format("woff2"),
+			url("/fonts/Poppins-Light.ttf") format("truetype");
+  }
+
+  @font-face {
+		font-family: 'Poppins';
+  	font-style: normal;
+  	font-weight: 500;
+		font-display: swap;
+  	src:
+    local("Poppins"),
+			url("/fonts/Poppins-Medium.woff2") format("woff2"),
+			url("/fonts/Poppins-Medium.ttf") format("truetype");
+  }
+
+  @font-face {
+		font-family: 'Poppins';
+  	font-style: normal;
+  	font-weight: 600;
+		font-display: swap;
+  	src:
+    local("Poppins"),
+			url("/fonts/Poppins-SemiBold.woff2") format("woff2"),
+			url("/fonts/Poppins-SemiBold.ttf") format("truetype");
+  }
+
   html {
-    font-family: system-ui, sans-serif;
+    font-family: 'Poppins', system-ui, sans-serif;
     background: #13151a;
     background-size: 224px;
   }
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
+
+  .min__height-dynamic {
+    min-height: 100vh;
+    min-height: 100dvh;
   }
 </style>
