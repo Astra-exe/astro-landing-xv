@@ -18,7 +18,7 @@ const { currentLocale } = Astro
     <title>{title}</title>
   </head>
   <body>
-    <div>
+    <div class='min__height-dynamic bg-background-body text-text-dark'>
       <slot />
     </div>
   </body>
@@ -29,57 +29,57 @@ const { currentLocale } = Astro
   }
 
   @font-face {
-		font-family: 'Parisienne';
-  	font-style: normal;
-  	font-weight: 400;
-		font-display: swap;
-  	src:
-    local("Parisienne"),
-			url("/fonts/Parisienne.woff2") format("woff2"),
-			url("/fonts/Parisienne.ttf") format("truetype");
+    font-family: 'Parisienne';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src:
+      local('Parisienne'),
+      url('/fonts/Parisienne.woff2') format('woff2'),
+      url('/fonts/Parisienne.ttf') format('truetype');
   }
 
   @font-face {
-		font-family: 'Poppins';
-  	font-style: normal;
-  	font-weight: 400;
-		font-display: swap;
-  	src:
-    local("Poppins"),
-			url("/fonts/Poppins-Regular.woff2") format("woff2"),
-			url("/fonts/Poppins-Regular.ttf") format("truetype");
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src:
+      local('Poppins'),
+      url('/fonts/Poppins-Regular.woff2') format('woff2'),
+      url('/fonts/Poppins-Regular.ttf') format('truetype');
   }
   @font-face {
-		font-family: 'Poppins';
-  	font-style: normal;
-  	font-weight: 300;
-		font-display: swap;
-  	src:
-    local("Poppins"),
-			url("/fonts/Poppins-Light.woff2") format("woff2"),
-			url("/fonts/Poppins-Light.ttf") format("truetype");
-  }
-
-  @font-face {
-		font-family: 'Poppins';
-  	font-style: normal;
-  	font-weight: 500;
-		font-display: swap;
-  	src:
-    local("Poppins"),
-			url("/fonts/Poppins-Medium.woff2") format("woff2"),
-			url("/fonts/Poppins-Medium.ttf") format("truetype");
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src:
+      local('Poppins'),
+      url('/fonts/Poppins-Light.woff2') format('woff2'),
+      url('/fonts/Poppins-Light.ttf') format('truetype');
   }
 
   @font-face {
-		font-family: 'Poppins';
-  	font-style: normal;
-  	font-weight: 600;
-		font-display: swap;
-  	src:
-    local("Poppins"),
-			url("/fonts/Poppins-SemiBold.woff2") format("woff2"),
-			url("/fonts/Poppins-SemiBold.ttf") format("truetype");
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src:
+      local('Poppins'),
+      url('/fonts/Poppins-Medium.woff2') format('woff2'),
+      url('/fonts/Poppins-Medium.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src:
+      local('Poppins'),
+      url('/fonts/Poppins-SemiBold.woff2') format('woff2'),
+      url('/fonts/Poppins-SemiBold.ttf') format('truetype');
   }
 
   html {
@@ -91,5 +91,23 @@ const { currentLocale } = Astro
   .min__height-dynamic {
     min-height: 100vh;
     min-height: 100dvh;
+  }
+
+  .gradient-title {
+    background-color: #262730;
+    background-image: linear-gradient(180deg, #ec9399 5%, #000 95%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
+
+  p {
+    text-wrap: balance;
+  }
+
+  h1, h2, h3 {
+    text-wrap: pretty;
   }
 </style>
