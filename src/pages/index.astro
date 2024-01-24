@@ -2,13 +2,187 @@
 import Layout from '../layouts/Layout.astro'
 ---
 
-<Layout title='Welcome to Astro.'>
-  <div class='min__height-dynamic bg-background-body text-text-dark'>
-    <main class=''>
-      <h1>Mis XV años</h1>
-      <img src='' alt='' />
-      <h2>Victoria Dairelyn Hernández Ramírez</h2>
-    </main>
-    <section></section>
-  </div>
+<Layout title='Mis XV años'>
+  <main class='min__height-dynamic overflow-hidden relative bg-background-body grid place-content-center'>
+    <div class='mail mb-8'>
+      <div class='envelope bg-[#FFA5A5] w-full h-20 z-[1]'>
+        <div class='paper'>
+          <ul
+            class='flex flex-col gap-y-2 mx-auto w-4/5 [&>li]:bg-gray-300 [&>li]:h-3'
+          >
+            <li class='w-1/2'></li>
+            <li class='w-1/4'></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <a
+            href='/invitacion'
+            class='notification p-3 absolute -top-6 -right-6 w-16 h-16 aspect-square rounded-full text-white font-bold bg-primary inline-flex justify-center items-center opacity-0 text-xl'
+          >
+            Ver
+          </a>
+        </div>
+      </div>
+      <div class='top__open'></div>
+    </div>
+    <button
+      id='btn-open-mail'
+      class='btn__sline-in overflow-hidden text-lg min-w-[180px] mx-auto px-2 py-3 border border-text-dark rounded-[10px] text-text-dark uppercase transition-opacity'
+    >
+      Abrir
+    </button>
+
+    <div class="absolute top-1/2 left-10 aspect-square w-80 rounded-full bg-primary blur-[180px]"/>
+    <div class="absolute top-0 right-0 aspect-square w-80 rounded-full bg-primary blur-[180px]"/>
+  </main>
 </Layout>
+
+<script type='module'>
+  const btnOpen = document.getElementById('btn-open-mail')
+  const mailContainer = document.querySelector('.mail')
+
+  btnOpen.addEventListener(
+    'click',
+    () => {
+      mailContainer.classList.add('is-open')
+      btnOpen.classList.add('opacity-0')
+      btnOpen.classList.add('pointer-events-none')
+    },
+    { once: true }
+  )
+</script>
+
+<style>
+  /* Mail styles */
+  .mail {
+    --m-width: 350px;
+    --m-height: 250px;
+    --color-top: #c8336c;
+    --color-left: #dc447f;
+    --color-right: #ea4c89;
+
+    position: relative;
+    text-align: center;
+  }
+
+  .envelope {
+    width: var(--m-width);
+    height: var(--m-height);
+    position: relative;
+    background-color: #f6f4ec;
+    filter: drop-shadow(4px 4px 10px var(--color-left));
+  }
+
+  .envelope:before,
+  .envelope:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  .envelope:before {
+    right: 0;
+    border-bottom: 0px solid transparent;
+    border-top: var(--m-height) solid transparent;
+    border-right: var(--m-width) solid var(--color-right);
+  }
+
+  .envelope:after {
+    left: 0;
+    border-bottom: 0px solid transparent;
+    border-top: var(--m-height) solid transparent;
+    border-left: var(--m-width) solid var(--color-left);
+  }
+
+  .top__open {
+    border-right: calc(var(--m-width) / 2) solid transparent;
+    border-top: calc(var(--m-height) / 2 + 5px) solid var(--color-top);
+    border-left: calc(var(--m-width) / 2) solid transparent;
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    transform-origin: 0% 0%;
+  }
+
+  .paper {
+    padding-top: 2em;
+    width: calc(var(--m-width) - 20px);
+    height: calc(var(--m-height) - 5px);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f6f4ec;
+    z-index: 0;
+  }
+
+  .paper::before {
+    content: '';
+    position: absolute;
+    width: calc(var(--m-width) - 20px);
+    height: calc(var(--m-height) - 5px);
+    background: rgba(177, 177, 177, 0.1);
+    bottom: 0;
+    left: 0;
+  }
+
+  .is-open .top__open {
+    animation: foldUp 1s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .is-open .paper {
+    animation: paperUp 1.5s ease-in-out;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+  }
+
+  .is-open .notification {
+    animation: appear 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+  }
+
+  /* ANIMATIONS */
+  @keyframes foldUp {
+    from {
+      transform: rotateX(0deg);
+    }
+    to {
+      transform: rotateX(180deg);
+      z-index: 0;
+    }
+  }
+
+  @keyframes appear {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes paperUp {
+    from {
+      height: var(--m-height);
+    }
+    60% {
+      height: var(--m-width);
+    }
+    70% {
+      height: calc(var(--m-width) - 20px);
+    }
+    80% {
+      height: var(--m-width);
+    }
+    90% {
+      height: calc(var(--m-width) - 10px);
+    }
+    100% {
+      height: var(--m-width);
+    }
+  }
+</style>
