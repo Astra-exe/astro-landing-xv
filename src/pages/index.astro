@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 ---
 
-<Layout title='Mis XV años'>
+<Layout title='Mis XV años' description=''>
   <main class='min__height-dynamic overflow-hidden relative bg-background-body grid place-content-center'>
     <div class='mail mb-8'>
       <div class='envelope bg-[#FFA5A5] w-full h-20 z-[1]'>
@@ -27,7 +27,7 @@ import Layout from '../layouts/Layout.astro'
     </div>
     <button
       id='btn-open-mail'
-      class='btn__sline-in overflow-hidden text-lg min-w-[180px] mx-auto px-2 py-3 border border-text-dark rounded-[10px] text-text-dark uppercase transition-opacity'
+      class='btn__sline-in z-10 overflow-hidden text-lg min-w-[180px] mx-auto px-2 py-3 border border-text-dark rounded-[10px] text-text-dark uppercase transition-opacity'
     >
       Abrir
     </button>
@@ -64,6 +64,15 @@ import Layout from '../layouts/Layout.astro'
     position: relative;
     text-align: center;
   }
+
+  @media screen and (max-width: 468px) {
+    .mail {
+      --m-width: 250px;
+      --m-height: 150px;
+    }
+
+  }
+
 
   .envelope {
     width: var(--m-width);
