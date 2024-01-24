@@ -1,0 +1,27 @@
+---
+import Church from '@/components/icons/Church.astro'
+import Button from './Button.astro'
+
+const { title, nameIcon, place, hour, location, locationMaps } = Astro.props
+
+// Get the icon
+const moduleIcon = await import(`../components/icons/${nameIcon}.astro`)
+const Icon = moduleIcon.default
+---
+
+<article
+  class='md:min-w-[340px] flex flex-col items-center p-6 border border-text-dark rounded-[10px] bg-gradient-to-b from-primary/60 to-secundary/10'
+>
+  <h4 class='text-[32px] mb-4 font-parisienne'>{title}</h4>
+  <div>
+    <Icon />
+    <span class='inline-block mt-1'>{hour}</span>
+  </div>
+  <p class='inline-flex flex-col mb-6'>
+    <span class='text-text-dark font-medium text-xl sm:text-2xl'>
+      {place}
+    </span>
+    <span class='font-medium text-lg text-text-dark/60'>{location}</span>
+  </p>
+  <Button href='' target='_blank' class='hover:'> Ver en maps </Button>
+</article>
