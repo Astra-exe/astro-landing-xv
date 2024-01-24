@@ -18,7 +18,9 @@ const { currentLocale } = Astro
     <title>{title}</title>
   </head>
   <body>
-    <div class='min__height-dynamic bg-background-body text-text-dark'>
+    <div
+      class='min__height-dynamic bg-background-body text-text-dark overflow-hidden'
+    >
       <slot />
     </div>
   </body>
@@ -107,7 +109,36 @@ const { currentLocale } = Astro
     text-wrap: balance;
   }
 
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     text-wrap: pretty;
+  }
+
+  .btn__sline-in {
+    will-change: filter;
+    transition: filter ease-out 100ms;
+  }
+
+  .btn__sline-in:before {
+    content: '';
+    width: 0;
+    height: calc(100% + 1px);
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #ffa5a5;
+    will-change: width;
+    z-index: -1;
+    transition: width ease-out 300ms;
+  }
+
+  .btn__sline-in:hover::before {
+    width: 100%;
+  }
+
+  .btn__sline-in:hover {
+    filter: drop-shadow(0 0 0.75rem #ffa5a5);
   }
 </style>

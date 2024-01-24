@@ -1,0 +1,26 @@
+---
+const { url, target, class: className, ...rest } = Astro.props
+---
+
+<a
+  href={url}
+  target={`${target ?? '_blank'}`}
+  rel='noopener norefer'
+  class:list={[
+    'relative',
+    'z-10',
+    'btn__sline-in',
+    'inline-block',
+    'px-5',
+    'py-2.5',
+    'border',
+    'border-text-dark',
+    'rounded-[10px]',
+    'overflow-hidden',
+    className
+  ]}
+  {...rest}
+>
+  <slot />
+
+</a>
