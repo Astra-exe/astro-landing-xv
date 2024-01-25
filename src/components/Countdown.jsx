@@ -1,4 +1,4 @@
-import {useRemainingTime} from '@/hooks/useRemainingTime'
+import { useRemainingTime } from '@/hooks/useRemainingTime'
 
 const TARGET_DATE_IN_MS = new Date('2024-04-27 17:00:00').getTime()
 export default function Countdown() {

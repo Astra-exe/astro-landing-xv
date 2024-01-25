@@ -5,8 +5,11 @@ import Layout from '../layouts/Layout.astro'
 <Layout
   title='Mis XV años'
   description='Invitación digital para la celabración de XV años de Victoria Dairelyn
-Hernández Ramírez'>
-  <main class='min__height-dynamic overflow-hidden relative bg-background-body grid place-content-center'>
+Hernández Ramírez'
+>
+  <main
+    class='min__height-dynamic overflow-hidden relative bg-background-body grid place-content-center'
+  >
     <div class='mail mb-8'>
       <div class='envelope bg-[#FFA5A5] w-full h-20 z-[1]'>
         <div class='paper'>
@@ -35,8 +38,14 @@ Hernández Ramírez'>
       Abrir
     </button>
 
-    <div class="absolute top-1/2 left-10 aspect-square w-80 rounded-full bg-primary blur-[180px]"/>
-    <div class="absolute top-0 right-0 aspect-square w-80 rounded-full bg-primary blur-[180px]"/>
+    <div
+      class='absolute top-1/2 left-10 aspect-square w-80 rounded-full bg-primary blur-[180px]'
+    >
+    </div>
+    <div
+      class='absolute top-0 right-0 aspect-square w-80 rounded-full bg-primary blur-[180px]'
+    >
+    </div>
   </main>
 </Layout>
 
@@ -73,9 +82,7 @@ Hernández Ramírez'>
       --m-width: 250px;
       --m-height: 150px;
     }
-
   }
-
 
   .envelope {
     width: var(--m-width);

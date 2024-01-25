@@ -1,17 +1,19 @@
 ---
 import Countdown from '@/components/Countdown'
-
 ---
 
-<footer class='mt-28 overflow-hidden min-h-[70vh] lg:min-w-[80vh] bg-footer-back bg-contain md:bg-cover bg-no-repeat bg-bottom lg:bg-top'>
-  <div class="w-4/5 mx-auto">
+<footer
+  class='mt-28 overflow-hidden min-h-[70vh] lg:min-w-[80vh] bg-footer-back bg-contain md:bg-cover bg-no-repeat bg-bottom lg:bg-top'
+>
+  <div class='w-4/5 mx-auto'>
     <article
-      class="py-9 relative flex flex-col justify-center items-center before:absolute before:top-0 before:left-1/2 before:-translate-x-1/2 before:block before:bg-primary before:w-1/2 before:h-1 before:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:block after:bg-primary after:w-1/2 after:h-1 after:content-[''] delay-[200ms] duration-[400ms] taos:[transform:translate3d(0,200px,0)_scale(0.6)] taos:opacity-0" data-taos-offset="200"
+      class="py-9 relative flex flex-col justify-center items-center before:absolute before:top-0 before:left-1/2 before:-translate-x-1/2 before:block before:bg-primary before:w-1/2 before:h-1 before:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:block after:bg-primary after:w-1/2 after:h-1 after:content-[''] delay-[200ms] duration-[400ms] taos:[transform:translate3d(0,200px,0)_scale(0.6)] taos:opacity-0"
+      data-taos-offset='200'
     >
       <h3 class='gradient-title text-center text-4xl font-parisienne mb-5'>
         Solo Faltan:
       </h3>
-      <Countdown client:idle/>
+      <Countdown client:idle />
     </article>
   </div>
 </footer>
