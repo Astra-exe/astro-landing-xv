@@ -1,6 +1,4 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
-
 interface Props {
   title: string,
   description: string,
@@ -18,15 +16,15 @@ const { currentLocale } = Astro
     <meta name='viewport' content='width=device-width' />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <title>{title}</title>
-    <ViewTransitions />
-  </head>
-  <body transition:animate="none">
+  <body>
     <div
-      transition:animate="fade"
       class='min__height-dynamic min-w-80 max-w-[2440px] bg-background-body text-text-dark overflow-hidden'
     >
       <slot />
     </div>
+
+
+    <script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
   </body>
 </html>
 <style is:global>
