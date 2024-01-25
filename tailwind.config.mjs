@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 import animations from 'tailwindcss-animated'
+import taos from 'taos/plugin'
 
 
 export default {
@@ -22,6 +23,12 @@ export default {
 		},
 	},
 	plugins: [
-		animations
+		animations,
+		taos
 	],
+	safelist: [
+    '!duration-[0ms]',
+    '!delay-[0ms]',
+    'html.js :where([class*="taos:"]:not(.taos-init))'
+  ]
 }
