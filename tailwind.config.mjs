@@ -18,7 +18,7 @@ export default {
 				'text-dark': '#262730'
 			},
 			backgroundImage: {
-				'footer-back': 'url(./flowers.webp)'
+				'footer-back': 'url(/flowers.webp)'
 			}
 		},
 	},
