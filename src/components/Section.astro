@@ -1,0 +1,56 @@
+---
+import Separator from '@/components/icons/Separator.astro'
+import InfoCard from '@/components/InfoCard.astro'
+
+
+interface Props {
+  titleSection: string;
+}
+
+const {titleSection} = Astro.props;
+---
+
+<section class='relative mt-32 text-center'>
+  <div
+    class='absolute -bottom-24 -left-[20%] aspect-square w-80 rounded-full bg-primary blur-[180px]'
+  >
+  </div>
+  <div
+    class='relative mb-6 lg:grid lg:grid-cols-[25%_1fr_25%] lg:items-center'
+  >
+    <div class='mb-5 inline-flex justify-center'>
+      <Separator />
+    </div>
+    <h3
+      class='gradient-title mb-1 font-parisienne text-4xl leading-[50px] lg:leading-[70px] lg:text-5xl delay-[100ms] duration-[300ms] taos:scale-[0.6] taos:opacity-0'
+      data-taos-offset="100"
+    >
+      {titleSection}
+    </h3>
+    <div class='hidden lg:inline-flex'>
+      <Separator />
+    </div>
+  </div>
+
+  <slot name="content">
+  <div
+    class='realtive flex flex-col gap-x-8 justify-center gap-y-12 md:flex-row delay-[300ms] duration-[600ms] taos:translate-x-[200px] taos:opacity-0' data-taos-offset="200"
+  >
+    <InfoCard
+      title='Ceremonia Religiosa'
+      nameIcon='Church'
+      hour='5:00pm'
+      place='Capilla Hacienda Bakal'
+      location='Leon, Gto.'
+      locationMaps='https://www.google.com/maps/place/Hacienda+Bakal,+37683+León+de+los+Aldama,+Gto./@21.031889,-101.5479452,17z/data=!4m6!3m5!1s0x842b97a479518705:0x7280bd250b54bb88!8m2!3d21.031889!4d-101.5479452!16s%2Fg%2F11vbyjgmw2'
+    />
+    <InfoCard
+      title='Recepción'
+      nameIcon='Cheers'
+      hour='7:00pm'
+      place='Hacienda Bakal'
+      location='Leon, Gto.'
+      locationMaps='https://www.google.com/maps/place/Hacienda+Bakal,+37683+León+de+los+Aldama,+Gto./@21.031889,-101.5479452,17z/data=!4m6!3m5!1s0x842b97a479518705:0x7280bd250b54bb88!8m2!3d21.031889!4d-101.5479452!16s%2Fg%2F11vbyjgmw2'
+    />
+  </div>
+</section>
