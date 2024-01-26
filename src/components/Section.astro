@@ -3,18 +3,18 @@ import Separator from '@/components/icons/Separator.astro'
 import InfoCard from '@/components/InfoCard.astro'
 
 interface Props {
-  titleSection: string
+  titleSection?: string
 }
 
 const { titleSection } = Astro.props
 
-const gridColsClass = titleSection ? 'grid-cols-[25%_1fr_25%]' : 'grid-cols-1'
+const gridColsClass = titleSection ? 'lg:grid-cols-[25%_1fr_25%]' : 'lg:grid-cols-1'
 ---
 
 <section class='relative mt-32 text-center'>
   <slot name="decoration"></slot>
 
-  <div class=`relative mb-6 lg:grid lg:${gridColsClass} lg:justify-center lg:items-center`>
+  <div class={`relative mb-6 lg:grid ${gridColsClass} lg:justify-center lg:items-center`}>
     <div class='mb-5 inline-flex justify-center'>
       <Separator />
     </div>
