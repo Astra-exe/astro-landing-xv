@@ -16,16 +16,20 @@ const { currentLocale } = Astro
     <meta name='viewport' content='width=device-width' />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <title>{title}</title>
-  </head><body>
+    <slot name="preload"/>
+    <slot name="scripts"/>
+
+  </head>
+  <body>
     <div
       class='min__height-dynamic min-w-80 max-w-[2440px] bg-background-body text-text-dark overflow-hidden'
     >
       <slot />
     </div>
-
-    <script src='https://unpkg.com/taos@1.0.5/dist/taos.js'></script>
   </body>
 </html>
+
+<!-- Global CSS -->
 <style is:global>
   :root {
     color-scheme: light;

@@ -12,10 +12,26 @@ import InfoCard from '@/components/InfoCard.astro'
 import Separator from '@/components/icons/Separator.astro'
 ---
 
+
+
 <Layout
   title='Te invito a mis XV años'
   description='Invitación digital para la celabración de XV años de Victoria Dairelyn Hernández Ramírez'
 >
+
+  <link
+    rel="preconnect"
+    href="https://unpkg.com/taos@1.0.5/dist/taos.js"
+    slot="preload"
+  />
+  <script
+    src='https://unpkg.com/taos@1.0.5/dist/taos.js'
+    type="module"
+    slot="scripts"
+  >
+  </script>
+
+  <!-- Content -->
   <div class='w-4/5 mx-auto pt-10'>
     <Hero />
 
@@ -36,6 +52,11 @@ import Separator from '@/components/icons/Separator.astro'
 
     <!-- Location section -->
     <Section titleSection='Sede del festejo'>
+      <div
+        slot="decoration"
+        class='absolute -bottom-24 -left-[20%] aspect-square w-80 rounded-full bg-primary blur-[180px]'
+      >
+      </div>
       <div
         class='realtive flex flex-col gap-x-8 justify-center gap-y-12 md:flex-row delay-[300ms] duration-[600ms] taos:translate-x-[200px] taos:opacity-0'
         data-taos-offset='200'
@@ -60,18 +81,22 @@ import Separator from '@/components/icons/Separator.astro'
       </div>
     </Section>
 
-    <!-- People section -->
-    <Section titleSection='Mis Padres y Padrinos'>
-      <People slot='content' />
+    <!-- Parents section -->
+    <Section titleSection=''>
+      <div
+        slot="decoration"
+        class='absolute -bottom-10 right-0 aspect-square w-80 rounded-full bg-primary blur-[180px]'
+      />
+      <People slot='content'/>
     </Section>
   </div>
 
   <!-- other info section container -->
   <div
-    class='pt-28 mt-32 relative bg-gradient-to-b from-secundary/80 via-secundary/10 to-secundary/0'
+    class='mt-32 relative bg-gradient-to-b from-secundary/80 via-secundary/10 to-secundary/0'
     style='clip-path: polygon(49% 8%, 100% 0, 100% 100%, 0 100%, 0 0);'
   >
-    <div class='w-4/5 mx-auto pt-10'>
+    <div class='w-4/5 mx-auto pt-60'>
       <!-- Dress code -->
       <DressCode />
       <!-- Confirm section -->
